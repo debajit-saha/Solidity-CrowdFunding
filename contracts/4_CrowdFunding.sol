@@ -28,11 +28,12 @@ contract CrowdFunding {
     uint256 fundCount;
     uint256 investmentCount;
 
-    // Set manager/owner.
+    // Set manager/owner of this contract.
     constructor() {
         manager = msg.sender;
     }
 
+    // Modifier which checks sender is manager.
     modifier onlyManager() {
         require(
             manager == msg.sender,

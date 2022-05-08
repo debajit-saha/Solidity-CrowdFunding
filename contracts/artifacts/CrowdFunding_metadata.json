@@ -293,11 +293,11 @@
 	},
 	"sources": {
 		"contracts/4_CrowdFunding.sol": {
-			"keccak256": "0x44fc9ebbf78efce3c31608393b42f6d61a02d9b51411f0e5d41c3cbcbb2c5bd2",
+			"keccak256": "0x83a60985ffa7c6e87f05657ec032d0f7c1b7fc369899074bda1621f79622974f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d54256b55119455d17cc1b0f06361a0334d115afc3ee1c5ea44126980098c48c",
-				"dweb:/ipfs/QmczJMxqJBtVaDYPJx4xSHtW2DHcMQaHR4JxPSNd7y2j3z"
+				"bzz-raw://9d8ace0f9f5831f7b6579ce4d66ea7ecc7bc9ba7677d7415e561742cbe64cd1e",
+				"dweb:/ipfs/QmUfa3XroUgAtbmWW3zzR41n3gEzvr7iLvr6bMdDTopNip"
 			]
 		}
 	},
