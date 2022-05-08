@@ -108,10 +108,7 @@ contract CrowdFunding {
     }
 
     // Get all investements for a fund.
-    function getAllInvestmentsForFund(uint256 fundId)
-        public
-        view
-        returns (Investment[] memory)
+    function getAllInvestmentsForFund(uint256 fundId) public view returns (Investment[] memory)
     {
         Investment[] memory investmentList = new Investment[](investmentCount);
         uint256 count = 0;
