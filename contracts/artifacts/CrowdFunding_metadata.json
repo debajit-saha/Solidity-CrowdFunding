@@ -54,16 +54,11 @@
 						"internalType": "uint256",
 						"name": "fundId",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
 					}
 				],
 				"name": "createInvestment",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -293,11 +288,11 @@
 	},
 	"sources": {
 		"contracts/4_CrowdFunding.sol": {
-			"keccak256": "0x2f1515eca51cbe22df375c95344883eb8fea647b95e75365827a03bcdedcc1b8",
+			"keccak256": "0xf9b4728b457b762f86601d7e7dc380fe6f75e498732526891dde148501cdbde4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d28330c3416bc3b6de73564d1c9b956ff70cbf8e92a913d915df8bdf9b4bf665",
-				"dweb:/ipfs/QmXujTKgbZ8FQdEKKPMKp9WBsPTyWM4e2Ejfh8a7dwT2JB"
+				"bzz-raw://6970982a1b4b46b7bb69fa2b6b215633ef9e273289f4195f0f42961e73fdc952",
+				"dweb:/ipfs/QmXhD2JLcDYSnPuoGfktsXbQQPvHFiCx1hisFqQeujKAY7"
 			]
 		}
 	},

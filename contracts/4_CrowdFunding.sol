@@ -90,21 +90,22 @@ contract CrowdFunding {
     }
 
     // Create a new investment.
-    function createInvestment(uint256 fundId, uint256 amount) public {
+    function createInvestment(uint256 fundId) public payable {
         Fund storage fund = funds[fundId];
         require(fund.isActive, "Fund is closed.");
+        require(fund.startDate <= block.timestamp, "Fund has not started yet.");
 
         investments.push(
             Investment(
                 investmentCount,
                 fundId,
                 msg.sender,
-                amount,
+                msg.value,
                 block.timestamp
             )
         );
         investmentCount++;
-        fund.currentAmount += amount;
+        fund.currentAmount += msg.value;
     }
 
     // Get all investements for a fund.
