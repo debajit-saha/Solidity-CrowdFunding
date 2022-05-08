@@ -2,8 +2,7 @@
 pragma solidity >=0.4.21 <0.9.0;
 
 contract CrowdFunding {
-    address public manager;
-
+    // Models for Fund, Investement
     struct Fund {
         uint256 id;
         string name;
@@ -22,11 +21,14 @@ contract CrowdFunding {
         uint256 investorAmount;
         uint256 investmentDate;
     }
+
+    address public manager;
     mapping(uint256 => Fund) funds;
     Investment[] investments;
     uint256 fundCount;
     uint256 investmentCount;
 
+    // Set manager/owner.
     constructor() {
         manager = msg.sender;
     }
@@ -39,6 +41,7 @@ contract CrowdFunding {
         _;
     }
 
+    // Create a new fund. Only manager is allowed to create it.
     function createFund(
         string memory name,
         string memory description,
@@ -69,6 +72,7 @@ contract CrowdFunding {
         fundCount++;
     }
 
+    // Get all funds.
     function getAllFunds() public view returns (Fund[] memory) {
         Fund[] memory fundList = new Fund[](fundCount);
 
@@ -79,10 +83,12 @@ contract CrowdFunding {
         return fundList;
     }
 
+    // Get a fund by Id.
     function getFundById(uint256 fundId) public view returns (Fund memory) {
         return funds[fundId];
     }
 
+    // Create a new investment.
     function createInvestment(uint256 fundId, uint256 amount) public {
         Fund storage fund = funds[fundId];
         require(fund.isActive, "Fund is closed.");
@@ -100,6 +106,7 @@ contract CrowdFunding {
         fund.currentAmount += amount;
     }
 
+    // Get all investements for a fund.
     function getAllInvestmentsForFund(uint256 fundId)
         public
         view
@@ -118,6 +125,7 @@ contract CrowdFunding {
         return investmentList;
     }
 
+    // Transfer amount to fund recipient.
     function makePayment(uint256 fundId) public onlyManager {
         Fund storage fund = funds[fundId];
         require(fund.isActive, "Fund is closed.");
