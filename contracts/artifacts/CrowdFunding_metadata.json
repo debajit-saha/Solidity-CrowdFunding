@@ -11,6 +11,239 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "goalAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "currentAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isActive",
+								"type": "bool"
+							},
+							{
+								"internalType": "address payable",
+								"name": "receiverAddress",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct CrowdFunding.Fund",
+						"name": "fund",
+						"type": "tuple"
+					}
+				],
+				"name": "AmountPaid",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "goalAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "currentAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isActive",
+								"type": "bool"
+							},
+							{
+								"internalType": "address payable",
+								"name": "receiverAddress",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct CrowdFunding.Fund",
+						"name": "fund",
+						"type": "tuple"
+					}
+				],
+				"name": "FundCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "goalAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "currentAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isActive",
+								"type": "bool"
+							},
+							{
+								"internalType": "address payable",
+								"name": "receiverAddress",
+								"type": "address"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct CrowdFunding.Fund",
+						"name": "fund",
+						"type": "tuple"
+					}
+				],
+				"name": "FundUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fundId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "investorAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "investorAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "investmentDate",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct CrowdFunding.Investment",
+						"name": "investment",
+						"type": "tuple"
+					}
+				],
+				"name": "InvestmentCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newManager",
+						"type": "address"
+					}
+				],
+				"name": "changeManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -288,11 +521,11 @@
 	},
 	"sources": {
 		"contracts/4_CrowdFunding.sol": {
-			"keccak256": "0xf9b4728b457b762f86601d7e7dc380fe6f75e498732526891dde148501cdbde4",
+			"keccak256": "0x2a95f74caeed20abf8bdd891817cf28d9bca531c51979c12c840d79e72aec8c3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6970982a1b4b46b7bb69fa2b6b215633ef9e273289f4195f0f42961e73fdc952",
-				"dweb:/ipfs/QmXhD2JLcDYSnPuoGfktsXbQQPvHFiCx1hisFqQeujKAY7"
+				"bzz-raw://1afaa1b2b90303f77525b4e4366f7eca096ad0f2111465f744ccbb8c6a7ec264",
+				"dweb:/ipfs/QmbEgDYcQmEkYRkkJ5LNbWt6wwLMphwi2hcMYiRJfbSWF6"
 			]
 		}
 	},

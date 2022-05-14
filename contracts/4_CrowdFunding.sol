@@ -34,12 +34,18 @@ contract CrowdFunding {
     }
 
     // Modifier which checks sender is manager.
-    modifier onlyManager() {
-        require(
-            manager == msg.sender,
-            "Only manager is allowed to allowed to call this function."
-        );
+    modifier onlyBy(address account) {
+        require(account == msg.sender, "Sender not authorized.");
         _;
+    }
+
+    event FundCreated(Fund fund);
+    event FundUpdated(Fund fund);
+    event InvestmentCreated(Investment investment);
+    event AmountPaid(Fund fund);
+
+    function changeManager(address newManager) public onlyBy(manager) {
+        manager = newManager;
     }
 
     // Create a new fund. Only manager is allowed to create it.
@@ -50,7 +56,7 @@ contract CrowdFunding {
         uint256 endDate,
         uint256 goalAmount,
         address payable receiverAddress
-    ) public onlyManager {
+    ) public onlyBy(manager) {
         require(
             startDate > block.timestamp,
             "Start date-time should be greater than current date-time."
@@ -71,6 +77,8 @@ contract CrowdFunding {
         newFund.receiverAddress = receiverAddress;
         newFund.isActive = true;
         fundCount++;
+
+        emit FundCreated(newFund);
     }
 
     // Get all funds.
@@ -106,10 +114,16 @@ contract CrowdFunding {
         );
         investmentCount++;
         fund.currentAmount += msg.value;
+
+        emit InvestmentCreated(investments[investmentCount - 1]);
+        emit FundUpdated(fund);
     }
 
     // Get all investements for a fund.
-    function getAllInvestmentsForFund(uint256 fundId) public view returns (Investment[] memory)
+    function getAllInvestmentsForFund(uint256 fundId)
+        public
+        view
+        returns (Investment[] memory)
     {
         Investment[] memory investmentList = new Investment[](investmentCount);
         uint256 count = 0;
@@ -125,7 +139,7 @@ contract CrowdFunding {
     }
 
     // Transfer amount to fund recipient.
-    function makePayment(uint256 fundId) public onlyManager {
+    function makePayment(uint256 fundId) public onlyBy(manager) {
         Fund storage fund = funds[fundId];
         require(fund.isActive, "Fund is closed.");
         require(
@@ -136,5 +150,7 @@ contract CrowdFunding {
 
         fund.receiverAddress.transfer(fund.currentAmount);
         fund.isActive = false;
+
+        emit AmountPaid(fund);
     }
 }
